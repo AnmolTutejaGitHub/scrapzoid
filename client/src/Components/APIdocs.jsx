@@ -3,12 +3,13 @@ import { useState } from 'react';
 import Footer from './Footer';
 
 function APIdocs() {
+    const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
     const [MDvalue, setMDvalue] = useState(`
 \`\`\`jsx
 import axios from 'axios';
 
 async function scrap() {
-    const response = await axios.post('http://localhost:8080/scrap', {
+    const response = await axios.post('${BACKEND_URL}/scrap', {
         url: url,
         type: {
             image: true, //as per your need

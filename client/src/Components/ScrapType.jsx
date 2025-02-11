@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import toast, { Toaster } from 'react-hot-toast';
 function ScrapType({ type, url, SetScrapData }) {
+    const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
     const [disable, setDisable] = useState(false);
 
     async function getScrapedData() {
@@ -9,7 +10,7 @@ function ScrapType({ type, url, SetScrapData }) {
         setDisable(true);
         try {
             console.log(type);
-            const response = await axios.post('http://localhost:8080/scrap', {
+            const response = await axios.post(`${BACKEND_URL}/scrap`, {
                 url: url,
                 type: type
             })

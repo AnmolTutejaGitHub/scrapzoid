@@ -5,3 +5,9 @@ body {
   background-color: #08090A;
   color: white
 }
+
+@media (max-width: 800px) {
+  .header-img-display-none {
+    display: none;
+  }
+}

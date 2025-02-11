@@ -13,7 +13,7 @@ function Home() {
                     <p className='text-xl text-[#B5B6B6]'>Efficiently extract data from websites with ease</p>
                 </div>
                 <div>
-                    <img src={Header} className=" h-auto object-cover" />
+                    <img src={Header} className=" h-auto object-cover header-img-display-none" />
                 </div>
             </div>
             <div className='w-full flex justify-center'>
