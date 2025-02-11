@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 function ScrapType({ type, url, SetScrapData }) {
     const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
     const [disable, setDisable] = useState(false);

@@ -1,10 +1,9 @@
 import MDEditor from '@uiw/react-md-editor';
 import { useState } from 'react';
-import Footer from './Footer';
 
 function APIdocs() {
     const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
-    const [MDvalue, setMDvalue] = useState(`
+    const [MDvalue] = useState(`
 \`\`\`jsx
 import axios from 'axios';
 
