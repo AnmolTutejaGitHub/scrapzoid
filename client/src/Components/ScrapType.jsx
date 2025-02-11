@@ -10,6 +10,7 @@ function ScrapType({ type, url, SetScrapData }) {
         setDisable(true);
         try {
             console.log(type);
+            console.log(BACKEND_URL);
             const response = await axios.post(`${BACKEND_URL}/scrap`, {
                 url: url,
                 type: type
