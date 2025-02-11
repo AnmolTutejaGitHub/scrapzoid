@@ -5,7 +5,7 @@ const puppeteer = require("puppeteer");
 const scrapThis = require("../puppeteer-functions/scarpThis");
 
 app.use(cors({
-    origin: '*',
+    origin: `${process.env.FRONTEND_URL}`,
 }));
 app.use(express.json());
 
