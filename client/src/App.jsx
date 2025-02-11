@@ -1,9 +1,10 @@
 import Navbar from "./Components/Navbar";
 import Home from "./Components/Home";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Footer from "./Components/Footer";
+import APIdocs from "./Components/APIdocs";
 import Scrap from "./Components/Scrap";
 import { Toaster } from 'react-hot-toast';
+import Footer from "./Components/Footer";
 function App() {
   return (
     <div>
@@ -15,10 +16,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/scrap" element={<Scrap />} />
+          <Route path="/docs" element={<APIdocs />} />
         </Routes>
-
-        <Footer />
       </BrowserRouter>
+      <Footer />
     </div>
   )
 }

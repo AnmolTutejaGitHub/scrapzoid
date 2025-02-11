@@ -11,7 +11,12 @@ function Scrap() {
     });
 
     const [url, setUrl] = useState("");
-    const [scrapData, setScrapData] = useState([]);
+    const [scrapData, setScrapData] = useState([
+        {
+            type: "default_data",
+            data: "This is default"
+        }
+    ]);
 
     const handleCheckboxChange = (event) => {
         const { name, checked } = event.target;
@@ -48,7 +53,7 @@ function Scrap() {
 
             {scrapData.length > 0 && <div className="flex flex-col justify-center items-center">
                 <div className="flex justify-center text-2xl mb-5">Scrapped Data</div>
-                <div className="w-[95%] bg-white text-black rounded-sm p-2">
+                <div className="w-[95%] bg-[#161B22] text-white rounded-sm p-2">
                     <pre style={{ whiteSpace: "pre-wrap", wordBreak: "break-word" }}>
                         {JSON.stringify(scrapData, null, 2)}
                     </pre>

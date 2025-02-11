@@ -5,7 +5,7 @@ const puppeteer = require("puppeteer");
 const scrapThis = require("../puppeteer-functions/scarpThis");
 
 app.use(cors({
-    origin: `http://localhost:5173`,
+    origin: `*`,
     credentials: true
 }));
 app.use(express.json());

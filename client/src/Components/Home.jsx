@@ -1,6 +1,7 @@
 import Header from '../assets/header.png';
 import HowItWorks from './HowItWorks';
 import { useNavigate } from 'react-router-dom';
+import Footer from './Footer';
 function Home() {
     const navigate = useNavigate();
     return (
