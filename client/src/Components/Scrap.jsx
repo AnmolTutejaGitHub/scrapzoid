@@ -1,7 +1,10 @@
 import { useState } from "react";
 import ScrapType from "./ScrapType";
+import toast from 'react-hot-toast';
+import axios from 'axios';
 
 function Scrap() {
+    const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
     const [type, setType] = useState({
         image: false,
         text: false,
@@ -11,6 +14,7 @@ function Scrap() {
     });
 
     const [url, setUrl] = useState("");
+    const [baseUrl, setBaseUrl] = useState("");
     const [scrapData, setScrapData] = useState([
         {
             type: "default_data",
@@ -28,6 +32,24 @@ function Scrap() {
 
     function SetScrapData(data) {
         setScrapData(data);
+    }
+
+    async function getAllRoutes() {
+        const toastId = toast.loading('getting all routes');
+        try {
+            const response = await axios.post(`${BACKEND_URL}/allUrls`, {
+                url: baseUrl
+            });
+            setScrapData(response.data);
+            console.log(response.data);
+            toast.success("success");
+        } catch (e) {
+            console.log(e);
+            toast.error("error");
+        } finally {
+            toast.dismiss(toastId);
+        }
+
     }
 
     return (
@@ -50,6 +72,11 @@ function Scrap() {
                 <p> <span className="font-bold text-red-600">Note : </span> Our scraping tool only extracts currently visible content from web pages. Dynamic elements, such as those loaded via JavaScript or infinite scrolling, may not be captured.
                     Additionally, some pages require login access, and websites with anti-bot protections may block automated scraping.</p>
             </div>
+
+            {/* <div>
+                <input placeholder="Get All Routes of this site" onChange={(e) => setBaseUrl(e.target.value)}></input>
+                <button onClick={getAllRoutes}>Get All Routes</button>
+            </div> */}
 
             {scrapData.length > 0 && <div className="flex flex-col justify-center items-center">
                 <div className="flex justify-center text-2xl mb-5">Scrapped Data</div>
